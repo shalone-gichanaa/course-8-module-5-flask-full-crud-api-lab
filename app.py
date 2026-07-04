@@ -65,7 +65,6 @@ def update_event(event_id):
         if event.id == event_id:
             event.title = data["title"]
             return jsonify(event.to_dict()), 200
-
     return jsonify({"error": "Event not found"}), 404
 
 # TODO: Task 1 - Define the Problem
@@ -80,7 +79,7 @@ def delete_event(event_id):
     for event in events:
         if event.id == event_id:
             events.remove(event)
-            return jsonify({"message": "Event deleted successfully"}), 200
+            return "", 204
 
     return jsonify({"error": "Event not found"}), 404
 
